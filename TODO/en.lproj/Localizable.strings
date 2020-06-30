@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  TODO
+
+  Created by Matt on 29/06/2020.
+  Copyright © 2020 mindelicious. All rights reserved.
+*/
+
+"empty_list" = "The List is empty!";
+"need_to_do_something_placeholder" = "Ha! Need to do something?";
+"new_task" = "New Task";
+"add" = "Add";
+"when" = "When?";
+
+
+//String alert
+"fill_task" = "Fill task";
+"ok" = "Ok";
+"do_you_want_to_quit" = "Do yo want to quit?";
+"yes" = "Yes";
+"no" = "No";
+"task_was_added" = "Task was added";
+
+//Category
+"work" = "Work";
+"shopping" = "Shopping";
+"other" = "Other";

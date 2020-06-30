@@ -1,0 +1,20 @@
+PODS:
+  - BEMCheckBox (1.4.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - BEMCheckBox
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - BEMCheckBox
+    - SnapKit
+
+SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 5f6eb9d787e98611788abea29034a601240e6212
+
+COCOAPODS: 1.8.4
