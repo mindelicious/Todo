@@ -20,7 +20,8 @@ class TodoDetailViewController: UIViewController, UITextFieldDelegate {
     private lazy var otherCategoryBtn = makeCategoryBtn()
     private lazy var categoryStackView = makeStackView([workCategoryBtn, shoppingCategoryBtn, otherCategoryBtn])
     
-    var todoItem = TodoItem(todoLabel: nil, todoDate: nil, category: nil)
+//    var todoItem = TodoItem(todoLabel: nil, todoDate: nil, category: nil)
+    var todoItem = TodoItem()
     var onAddTodo: ((TodoItem) -> Void)?
     
     let datePicker = UIDatePicker()
@@ -102,17 +103,10 @@ class TodoDetailViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Helper functions
     @objc func addBtnTapped() {
         dismissKeyboard()
+    
+        guard let label = todoItem.todoLabel, !label.isEmpty else { fillDataAlert(); return }
         
-        if todoItem.todoDate == nil {
-            todoItem.todoDate = Date()
-        }
-    
-        if todoItem.todoLabel == nil || todoItem.todoLabel == "" {
-            fillDataAlert()
-        }
-    
-        guard let todo = todoItem.todoLabel, let date = todoItem.todoDate, let category = todoItem.category else { return }
-        onAddTodo!(TodoItem(todoLabel: todo, todoDate: date, category: category))
+        onAddTodo?(todoItem)
         let alert = UIAlertController(title: "",
                                       message: "task_was_added".localized(),
                                       preferredStyle: .alert)
@@ -120,8 +114,8 @@ class TodoDetailViewController: UIViewController, UITextFieldDelegate {
         
         let when = DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: when) {
-            alert.dismiss(animated: true, completion: {
-                self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
             })
         }
         

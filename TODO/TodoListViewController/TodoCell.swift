@@ -45,7 +45,7 @@ class TodoCell: UITableViewCell, BEMCheckBoxDelegate {
     func setData(task: TodoItem) {
         todoLabel.text = task.todoLabel
         categoryIcon.setImage(UIImage(named: task.category!.rawValue), for: .normal)
-        todoDateLabel.text = task.todoDate!.asString()
+        todoDateLabel.text = task.todoDate?.asString()
         checkBox.setOn(false, animated: false)
     }
     
